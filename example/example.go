@@ -1,5 +1,3 @@
-// NOTE: To run me, pull me out of the 'fib' package
-
 package main
 
 import (
