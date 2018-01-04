@@ -1,20 +1,19 @@
 package fib_test
 
 import (
-	"testing"
 	"fib"
+	"testing"
 )
 
 func TestComputeNextValue(t *testing.T) {
 	var tests = []struct {
-		input []int
+		input  []int
 		output int
 	}{
 		{fib.FibBase, 1},
 		{append(fib.FibBase, 1), 2},
 		{[]int{0, 1, 1, 2}, 3},
 		{[]int{0, 1, 1, 2, 3, 5, 8}, 13},
-
 	}
 	for _, test := range tests {
 		if result := fib.ComputeNextValue(test.input); result != test.output {
@@ -25,14 +24,13 @@ func TestComputeNextValue(t *testing.T) {
 
 func TestAddNextValue(t *testing.T) {
 	var tests = []struct {
-		input []int
+		input  []int
 		output []int
 	}{
 		{fib.FibBase, []int{0, 1, 1}},
 		{append(fib.FibBase, 1), []int{0, 1, 1, 2}},
 		{[]int{0, 1, 1, 2}, []int{0, 1, 1, 2, 3}},
 		{[]int{0, 1, 1, 2, 3, 5, 8}, []int{0, 1, 1, 2, 3, 5, 8, 13}},
-
 	}
 	for _, test := range tests {
 		result := fib.AddNextValue(test.input)
@@ -52,7 +50,7 @@ func TestAddNextValue(t *testing.T) {
 
 func TestGetFibs(t *testing.T) {
 	var tests = []struct {
-		input int
+		input  int
 		output []int
 	}{
 		{0, fib.FibBase},
@@ -61,7 +59,6 @@ func TestGetFibs(t *testing.T) {
 		{4, []int{0, 1, 1, 2}},
 		{5, []int{0, 1, 1, 2, 3}},
 		{8, []int{0, 1, 1, 2, 3, 5, 8, 13}},
-
 	}
 	for _, test := range tests {
 		result := fib.GetFibs(test.input)
@@ -81,7 +78,7 @@ func TestGetFibs(t *testing.T) {
 
 func TestIsFib(t *testing.T) {
 	var tests = []struct {
-		input int
+		input  int
 		output bool
 	}{
 		{0, true},
@@ -101,7 +98,7 @@ func TestIsFib(t *testing.T) {
 
 func TestIsFibs(t *testing.T) {
 	var tests = []struct {
-		input []int
+		input  []int
 		output bool
 	}{
 		{[]int{0}, true},
@@ -120,7 +117,7 @@ func TestIsFibs(t *testing.T) {
 
 func TestNthFib(t *testing.T) {
 	var tests = []struct {
-		input int
+		input  int
 		output int
 	}{
 		{1, 0},

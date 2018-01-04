@@ -3,7 +3,7 @@ package fib
 var FibBase = []int{0, 1}
 
 func ComputeNextValue(values []int) int {
-	return values[len(values) - 1] + values[len(values) - 2]
+	return values[len(values)-1] + values[len(values)-2]
 }
 
 func AddNextValue(values []int) []int {
@@ -11,17 +11,23 @@ func AddNextValue(values []int) []int {
 }
 
 func GetFibs(num int) []int {
-	if num <= 2 { return []int{0, 1} }
+	if num <= 2 {
+		return []int{0, 1}
+	}
 	values := FibBase
-	for n := 0; n < num - 2; n++ {
+	for n := 0; n < num-2; n++ {
 		values = AddNextValue(values)
 	}
 	return values
 }
 
 func IsFib(value int) bool {
-	if value < 0 { return false }
-	if value == 0 || value == 1 { return true }
+	if value < 0 {
+		return false
+	}
+	if value == 0 || value == 1 {
+		return true
+	}
 	values := FibBase
 	for {
 		newestValue := ComputeNextValue(values)
@@ -30,7 +36,7 @@ func IsFib(value int) bool {
 			return true
 		case newestValue > value:
 			return false
-		default:	
+		default:
 			values = append(values, newestValue)
 		}
 	}
@@ -43,16 +49,20 @@ func IsFibs(values []int) bool {
 	}
 	return areFibs
 }
-		
+
 func NthFib(n int) int {
-	if n <= 1 { return 0 }
-	if n == 2 { return 1 }
-	return nthFibHelper(FibBase, n - 2)
+	if n <= 1 {
+		return 0
+	}
+	if n == 2 {
+		return 1
+	}
+	return nthFibHelper(FibBase, n-2)
 }
 
 func nthFibHelper(values []int, n int) int {
 	if n == 0 {
-		return values[len(values) - 1]
+		return values[len(values)-1]
 	}
-	return nthFibHelper(AddNextValue(values), n - 1)
+	return nthFibHelper(AddNextValue(values), n-1)
 }
